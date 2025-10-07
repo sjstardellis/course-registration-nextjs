@@ -11,7 +11,6 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
     // User object to be found
     const user = await prisma.user.findUnique({
         where: { id },
-        include: { registrations: { include: { course: true } } },
     });
 
     return user
